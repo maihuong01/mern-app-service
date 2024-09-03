@@ -2,6 +2,11 @@ import { PostModel } from '../models/PostModel.js';
 
 export const getPosts = async (req, res) => {
   try {
+    const postsNew = new PostModel({
+      title: 'test',
+      content: 'test',
+    });
+    postsNew.save();
     const posts = await PostModel.find();
     res.status(200).json(posts);
   } catch (err) {
